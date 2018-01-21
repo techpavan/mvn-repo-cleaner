@@ -1,0 +1,1 @@
+java -jar mvn-repo-cleaner.jar
