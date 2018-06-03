@@ -51,6 +51,9 @@ appropriate switches as provided below.
       Comma separated list of groupIds (full or part) to be ignored.
     --path, -p
       Path to m2 directory, if using a custom path.
+    --retainOld, -ro
+      Retain the artifacts even if old versions. Only process the configured inputs.
+      Default: false
       
 
 Feel free to raise any issues or recommend any changes or improvements.

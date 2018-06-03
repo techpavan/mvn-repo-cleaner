@@ -12,7 +12,6 @@ import lombok.Data;
 import org.apache.commons.lang3.time.DateUtils;
 
 import java.text.ParseException;
-import java.util.Arrays;
 import java.util.List;
 
 @Data
@@ -50,6 +49,9 @@ public class ArgData {
 
     @Parameter(names = {"--dryrun", "-dr"}, description = "Do not delete files, just simulate and print result.")
     private boolean dryRun;
+
+    @Parameter(names = {"--retainOld", "-ro"}, description = "Retain the artifacts even if old versions. Only process the configured inputs.")
+    private boolean retainOld;
 
     static class DateToMillisConverter implements IStringConverter<Long> {
 

@@ -49,6 +49,7 @@ public class CleanM2 {
         SKIP_MAP.put(SkipReason.RESERVED, new HashSet<>());
         SKIP_MAP.put(SkipReason.IGNORED_ARTIFACT, new HashSet<>());
         SKIP_MAP.put(SkipReason.IGNORED_GROUP, new HashSet<>());
+        SKIP_MAP.put(SkipReason.RETAIN_OLD, new HashSet<>());
         SKIP_MAP.put(SkipReason.LATEST, new HashSet<>());
     }
 
@@ -157,6 +158,10 @@ public class CleanM2 {
                 DELETE_MAP.get(DeleteReason.DOWNLOAD_DATE).add(file.getParentFile());
                 return;
             }
+            if (argData.isRetainOld()) {
+                SKIP_MAP.get(SkipReason.RETAIN_OLD).add(file.getParentFile().getAbsolutePath());
+                return;
+            }
             // When none of the above are matched, add it for latest / oldest processing
             addToProcessMap(fileInfo);
         } catch (IOException e) {
@@ -199,7 +204,6 @@ public class CleanM2 {
         fileInfo.setFile(file);
         fileInfo.setArtifactId(findArtifactId(file));
         fileInfo.setGroupId(findGroupId(file, fileInfo.getArtifactId()));
-        String gaId = fileInfo.getGroupId() + ":" + fileInfo.getArtifactId();
         fileInfo.setVersion(findVersion(file));
         return fileInfo;
     }
@@ -240,7 +244,7 @@ public class CleanM2 {
     }
 
     private enum SkipReason {
-        IGNORED_ARTIFACT, IGNORED_GROUP, LATEST, RESERVED
+        IGNORED_ARTIFACT, IGNORED_GROUP, LATEST, RESERVED, RETAIN_OLD
     }
 
 }
