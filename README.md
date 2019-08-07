@@ -17,6 +17,8 @@ This output is also generated in the `mvn-repo-cleaner.log`.
 To run with more advanced options, open the terminal and execute the jar with 
 appropriate switches as provided below.
 
+**NOTE:** When using the `--path/-p` option, the target it points to must contain a directory (or symlink) called *repository*. This might be needed when cleaning a local directory used for publishing.
+
 `Usage: java -jar mvn-repo-cleaner.jar [options]`
 
   **Options:**
