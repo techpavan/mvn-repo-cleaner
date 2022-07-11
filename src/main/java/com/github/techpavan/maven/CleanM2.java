@@ -154,10 +154,21 @@ public class CleanM2 {
             if (attributes.lastAccessTime().toMillis() < argData.getAccessedBefore()) {
                 DELETE_MAP.get(DeleteReason.ACCESS_DATE).add(file.getParentFile());
                 return;
-            } else if (attributes.lastModifiedTime().toMillis() < argData.getDownloadedBefore()) {
+            }
+            if (attributes.lastAccessTime().toMillis() > argData.getAccessedAfter()) {
+                DELETE_MAP.get(DeleteReason.ACCESS_DATE).add(file.getParentFile());
+                return;
+            }
+
+            if (attributes.lastModifiedTime().toMillis() < argData.getDownloadedBefore()) {
                 DELETE_MAP.get(DeleteReason.DOWNLOAD_DATE).add(file.getParentFile());
                 return;
             }
+            if (attributes.lastModifiedTime().toMillis() > argData.getDownloadedAfter()) {
+                DELETE_MAP.get(DeleteReason.DOWNLOAD_DATE).add(file.getParentFile());
+                return;
+            }
+
             if (argData.isRetainOld()) {
                 SKIP_MAP.get(SkipReason.RETAIN_OLD).add(file.getParentFile().getAbsolutePath());
                 return;

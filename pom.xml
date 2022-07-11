@@ -12,7 +12,7 @@
 
     <groupId>com.github.techpavan</groupId>
     <artifactId>mvn-repo-cleaner</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <dependencies>
         <dependency>
@@ -45,7 +45,6 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -101,6 +100,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
