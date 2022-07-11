@@ -23,8 +23,14 @@ public class ArgData {
     @Parameter(names = {"--downloadedBefore", "-db"}, description = "Delete all libraries (even if latest version) downloaded on or before this date (MM-DD-YYYY).", converter = DateToMillisConverter.class)
     private Long downloadedBefore = 0L;
 
+    @Parameter(names = {"--downloadedAfter", "-da"}, description = "Delete all libraries (even if latest version) downloaded on or after this date (MM-DD-YYYY).", converter = DateToMillisConverter.class)
+    private Long downloadedAfter = Long.MAX_VALUE;
+
     @Parameter(names = {"--accessedBefore", "-ab"}, description = "Delete all libraries (even if latest version) last accessed on or before this date (MM-DD-YYYY).", converter = DateToMillisConverter.class)
     private Long accessedBefore = 0L;
+
+    @Parameter(names = {"--accessedAfter", "-aa"}, description = "Delete all libraries (even if latest version) last accessed on or after this date (MM-DD-YYYY).", converter = DateToMillisConverter.class)
+    private Long accessedAfter = Long.MAX_VALUE;
 
     @Parameter(names = {"--ignoreArtifacts", "-ia"}, description = "Comma separated list of groupId:artifactId combination to be ignored."/*, converter = StringToListConverter.class*/)
     private List<String> ignoreArtifacts;

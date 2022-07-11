@@ -27,6 +27,9 @@ appropriate switches as provided below.
       Delete all libraries (even if latest version) last accessed on or before 
       this date (MM-DD-YYYY).
       Default: 0
+    --accessedAfter, -aa
+      Delete all libraries (even if latest version) last accessed on or after 
+      this date (MM-DD-YYYY).
     --deleteAllSnapshots, -dsn
       Delete all snapshots irrespective of being latest.
       Default: false
@@ -40,6 +43,9 @@ appropriate switches as provided below.
       Delete all libraries (even if latest version) downloaded on or before 
       this date (MM-DD-YYYY).
       Default: 0
+    --downloadedAfter, -da
+      Delete all libraries (even if latest version) downloaded on or after 
+      this date (MM-DD-YYYY).
     --dryrun, -dr
       Do not delete files, just simulate and print result.
       Default: false
