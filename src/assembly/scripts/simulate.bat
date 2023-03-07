@@ -1,1 +1,1 @@
-java -jar mvn-repo-cleaner.jar -dr
+java -jar mvn-repo-cleaner.jar -dr %*

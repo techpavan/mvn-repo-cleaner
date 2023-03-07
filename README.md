@@ -4,20 +4,19 @@
 As newer versions of dependent libraries appear, the old ones become obsolete 
 and never get cleaned up. 
 This program assists to free up some disk space by removing older versions of 
-libraries downloaded to the `.m2` directory.
+libraries downloaded to the local Maven repository.
 
 This can be used just by extracting `mvn-repo-cleaner.tar.gz` / `mvn-repo-cleaner.zip` 
 and executing the `execute.sh` / `execute.bat` as per the environment 
-to clean up all non-latest versions of the libraries in the `.m2` directory.
+to clean up all non-latest versions of the libraries in the `<user_dir>/.m2/repository` directory.
+
+If the local repository is in a different location, use the `--path` flag to specify its location.
 
 To attempt a `dry-run`, just execute the `simulate.sh` / `simulate.bat` 
 to see the files that would be removed without actually deleting the files.
 This output is also generated in the `mvn-repo-cleaner.log`.
 
-To run with more advanced options, open the terminal and execute the jar with 
-appropriate switches as provided below.
-
-**NOTE:** When using the `--path/-p` option, the target it points to must contain a directory (or symlink) called *repository*. This might be needed when cleaning a local directory used for publishing.
+To run with more advanced options, run the `execute` script with the flags below.
 
 `Usage: java -jar mvn-repo-cleaner.jar [options]`
 
@@ -58,7 +57,7 @@ appropriate switches as provided below.
     --ignoreGroups, -ig
       Comma separated list of groupIds (full or part) to be ignored.
     --path, -p
-      Path to m2 directory, if using a custom path.
+      Path to local Maven repository if not in <user_dir>/.m2/repository.
     --retainOld, -ro
       Retain the artifacts even if old versions. Only process the configured inputs.
       Default: false

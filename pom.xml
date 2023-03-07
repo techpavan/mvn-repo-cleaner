@@ -12,7 +12,7 @@
 
     <groupId>com.github.techpavan</groupId>
     <artifactId>mvn-repo-cleaner</artifactId>
-    <version>1.0.2</version>
+    <version>1.1.0</version>
 
     <dependencies>
         <dependency>
