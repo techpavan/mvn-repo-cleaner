@@ -75,15 +75,14 @@ public class CleanM2 {
     }
 
     private static File evaluateM2Path(JCommander jCommander) {
-        String m2Path = defaultString(argData.getM2Path(), concat(USER_HOME, ".m2"));
+        String m2Path = defaultString(argData.getM2Path(), concat(concat(USER_HOME, ".m2"), "repository"));
         File m2Dir = new File(m2Path);
-        File repoDir = new File(m2Path, "repository");
-        if (!m2Dir.exists() || !repoDir.exists()) {
+        if (!m2Dir.exists()) {
             log.error("Valid Maven repository could not be found. Please provide a valid input.");
             jCommander.usage();
             System.exit(1);
         }
-        return repoDir;
+        return m2Dir;
     }
 
     private static JCommander parseInputParams(String[] args) {

@@ -17,7 +17,7 @@ import java.util.List;
 @Data
 public class ArgData {
 
-    @Parameter(names = {"--path", "-p"}, description = "Path to m2 directory, if using a custom path.")
+    @Parameter(names = {"--path", "-p"}, description = "Path to local Maven repository if not in <user_dir>/.m2/repository.")
     private String m2Path;
 
     @Parameter(names = {"--downloadedBefore", "-db"}, description = "Delete all libraries (even if latest version) downloaded on or before this date (MM-DD-YYYY).", converter = DateToMillisConverter.class)
